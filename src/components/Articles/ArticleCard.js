@@ -7,8 +7,10 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import CssModules from 'react-css-modules'
+import styles from './style.scss'
 
-const styles = {
+const jsStyles = {
   card: {
     maxWidth: 345,
   },
@@ -21,7 +23,7 @@ const styles = {
 function SimpleMediaCard(props) {
   const { classes } = props;
   return (
-    <div style={{display: 'inline-block'}}>
+    <div styleName='article-card'>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -38,10 +40,7 @@ function SimpleMediaCard(props) {
         </CardContent>
         <CardActions>
           <Button size="small" color="primary">
-            Share
-          </Button>
-          <Button size="small" color="primary">
-            Learn More
+            Read More
           </Button>
         </CardActions>
       </Card>
@@ -53,4 +52,4 @@ SimpleMediaCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SimpleMediaCard);
+export default withStyles(jsStyles)(CssModules(SimpleMediaCard, styles));
