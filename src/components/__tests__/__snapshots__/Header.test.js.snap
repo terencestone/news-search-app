@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<div>
+<div
+  styleName="main"
+>
   <div
     className={undefined}
     style={
@@ -30,25 +32,73 @@ exports[`renders correctly 1`] = `
           "position": "relative",
         }
       }
+      styleName="main"
     >
-      <div>
-        react-boilerplate-v1.0.0
-      </div>
-      <button
-        styleName="button"
+      <div
+        styleName="search-bar"
       >
-        <span
-          styleName="inside"
+        <input />
+        <button
+          className="MuiButtonBase-root-23 MuiButton-root-1 MuiButton-flat-5"
+          disabled={false}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex="0"
+          type="button"
         >
-          Vanity Button
-        </span>
-      </button>
-      <button
-        onClick={[Function]}
-        styleName="inside"
+          <span
+            className="MuiButton-label-2"
+          >
+            Search
+          </span>
+          <span
+            className="MuiTouchRipple-root-26"
+          />
+        </button>
+      </div>
+      <div
+        style={
+          Object {
+            "top": 0,
+          }
+        }
+        styleName="sort-bar"
       >
-        Outside button
-      </button>
+        <button
+          className="MuiButtonBase-root-23 MuiButton-root-1 MuiButton-flat-5"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex="0"
+          type="button"
+        >
+          <span
+            className="MuiButton-label-2"
+          >
+            Sort
+          </span>
+          <span
+            className="MuiTouchRipple-root-26"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </div>
