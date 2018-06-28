@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    className={undefined}
+    style={
+      Object {
+        "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+        "backgroundColor": "rgb(232, 232, 232)",
+        "boxSizing": "border-box",
+        "display": "flex",
+        "height": 56,
+        "justifyContent": "space-between",
+        "muiPrepared": true,
+        "padding": "0px 24px",
+      }
+    }
+  >
+    <div
+      className={undefined}
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "space-between",
+          "marginLeft": undefined,
+          "marginRight": undefined,
+          "muiPrepared": true,
+          "position": "relative",
+        }
+      }
+    >
+      <div>
+        react-boilerplate-v1.0.0
+      </div>
+      <button
+        styleName="button"
+      >
+        <span
+          styleName="inside"
+        >
+          Vanity Button
+        </span>
+      </button>
+      <button
+        onClick={[Function]}
+        styleName="inside"
+      >
+        Outside button
+      </button>
+    </div>
+  </div>
+</div>
+`;
