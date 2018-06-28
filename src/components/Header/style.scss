@@ -1,14 +1,28 @@
-.button{
-  background-color: #202020;
-  padding: 12px;
-  border-radius: 2px;
-  width: 100px;
+.main {
+  width: 100%;
 
-  .inside {
-    color: red;
+  .search-bar {
+    width: 50%;
+
+    input {
+      height: 20px;
+      width: 50%
+    }
   }
-}
 
-.inside {
-  color: green;
+  .sort-bar{
+    width: 50%;
+    position: relative;
+
+    .menu {
+      position: relative;
+      background-color: white;
+      border-radius: 5px;
+      border: 1px solid gray;
+      width: 15%;
+      min-width: 106px;
+      margin: auto;
+    }
+  }
+
 }

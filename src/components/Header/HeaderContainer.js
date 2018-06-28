@@ -6,7 +6,7 @@ import { init } from '../../sagas/testSaga/reducer'
 
 const mapStatetoProps = state => {
   return {
-    testSaga: state.testSaga
+    // testSaga: state.testSaga
   }
 }
 
