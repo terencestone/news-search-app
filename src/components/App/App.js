@@ -10,8 +10,6 @@ class App extends Component {
   }
 
   render() {
-    this.props.init()
-
     return (
       <div styleName="App">
         <Routes />
