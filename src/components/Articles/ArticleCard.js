@@ -20,7 +20,7 @@ const jsStyles = {
   },
 };
 
-const SimpleMediaCard = (props) => {
+const ArticleCard = (props) => {
   const { classes, title, image, description } = props;
   return (
     <div styleName='article-card'>
@@ -51,7 +51,7 @@ const SimpleMediaCard = (props) => {
   );
 }
 
-SimpleMediaCard.propTypes = {
+ArticleCard.propTypes = {
   classes: PropTypes.object.isRequired,
   title: PropTypes.string,
   image: PropTypes.string,
@@ -60,4 +60,4 @@ SimpleMediaCard.propTypes = {
   handleReadMore: PropTypes.func
 };
 
-export default withStyles(jsStyles)(CssModules(SimpleMediaCard, styles));
+export default withStyles(jsStyles)(CssModules(ArticleCard, styles));
