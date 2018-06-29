@@ -1,5 +1,5 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import styles from './style.scss'
 import CssModules from 'react-css-modules'
 import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar'
@@ -11,7 +11,9 @@ export class HeaderComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isMenuOpen: false
+      isMenuOpen: false,
+      searchText: '',
+      sortBy: "popularity"
     }
   }
 
@@ -21,30 +23,56 @@ export class HeaderComponent extends React.Component {
 
   handleClose = () => {
     this.setState({ isMenuOpen: false });
-  };
+  }
+
+  handleText = (e) => {
+    this.setState({ searchText: e.target.value })
+  }
+
+  handleSubmit = () => {
+    this.props.fetchArticles({
+      searchText: this.state.searchText,
+      sortBy: "popularity"
+    })
+  }
+
+  handleEnterPress = (e) => {
+    if (e.key === 'Enter') {
+      this.handleSubmit()
+    }
+  }
+
+  handleSort = (type) => {
+    this.props.fetchArticles({
+      searchText: this.state.searchText,
+      sortBy: type || undefined
+    })
+    this.handleClose()
+  }
 
   render() {
     const { isMenuOpen } = this.state;
-
+    // this.props.fetchArticles({ searchText: "Apple", sortBy: "publishedAt" })
     return (
       <div styleName='main'>
         <Toolbar>
           <ToolbarGroup styleName='main'>
             <div styleName='search-bar'>
-              <input />
+              <input onChange={this.handleText} onKeyPress={this.handleEnterPress} />
               <Button>Search</Button>
             </div>
-            <div styleName='sort-bar' style={{top: isMenuOpen ? 73 : 0}}>
+            <div styleName='sort-bar' style={{top: isMenuOpen ? 97 : 0}}>
               <Button
                 onClick={isMenuOpen ? this.handleClose : this.handleClick}
               >
-                Sort
+                Sort Articles
               </Button>
               { isMenuOpen ?
                 <div styleName='menu'>
-                  <MenuItem onClick={this.handleClose}>Date</MenuItem>
-                  <MenuItem onClick={this.handleClose}>Relevance</MenuItem>
-                  <MenuItem onClick={this.handleClose}>Popularity</MenuItem>
+                  <MenuItem onClick={() => this.handleSort("publishedAt")}>Date</MenuItem>
+                  <MenuItem onClick={() => this.handleSort("relevancy")}>Relevance</MenuItem>
+                  <MenuItem onClick={() => this.handleSort("popularity")}>Popularity</MenuItem>
+                  <MenuItem onClick={() => this.handleSort(null)}>None</MenuItem>
                 </div> : null }
               </div>
           </ToolbarGroup>
@@ -53,9 +81,9 @@ export class HeaderComponent extends React.Component {
     )
   }
 
-  // static propTypes = {
-  //   testSaga: PropTypes.object
-  // }
+  static propTypes = {
+    fetchArticles: PropTypes.func
+  }
 }
 
 export default CssModules(HeaderComponent, styles)

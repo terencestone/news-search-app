@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 
 import HeaderComponent from './Header'
 
-import { init } from '../../sagas/testSaga/reducer'
+import { fetchArticles } from '../../redux/actions/actionCreators'
 
 const mapStatetoProps = state => {
   return {
@@ -12,8 +12,8 @@ const mapStatetoProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    testInit: () => {
-      dispatch(init())
+    fetchArticles: params => {
+      dispatch(fetchArticles(params))
     }
   }
 }
