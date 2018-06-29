@@ -6,6 +6,23 @@ import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar'
 import { MenuItem } from 'material-ui/Menu'
 import Button from '@material-ui/core/Button';
 
+const overrideStyles = {
+  button: {
+    backgroundColor: "#e71d37",
+    height: 30,
+    marginBottom: 4,
+    minHeight: 0, color:
+    'white',
+    fontSize: 12,
+    textTransform: 'capitalize'
+  },
+  sortBtn: {
+    backgroundColor: '#313131',
+    width: 110,
+    height: 35
+  }
+}
+
 export class HeaderComponent extends React.Component {
 
   constructor(props) {
@@ -52,18 +69,24 @@ export class HeaderComponent extends React.Component {
 
   render() {
     const { isMenuOpen } = this.state;
-    // this.props.fetchArticles({ searchText: "Apple", sortBy: "publishedAt" })
+    // I'm overriding some of material-ui's styles inline
     return (
       <div styleName='main'>
-        <Toolbar>
+        <Toolbar style={{backgroundColor: '#454545'}}>
           <ToolbarGroup styleName='main'>
             <div styleName='search-bar'>
-              <input onChange={this.handleText} onKeyPress={this.handleEnterPress} />
-              <Button>Search</Button>
+              <input
+                onChange={this.handleText}
+                onKeyPress={this.handleEnterPress}
+              />
+              <Button
+                onClick={this.handleSubmit}
+                style={overrideStyles.button}>Search</Button>
             </div>
             <div styleName='sort-bar' style={{top: isMenuOpen ? 97 : 0}}>
               <Button
                 onClick={isMenuOpen ? this.handleClose : this.handleClick}
+                style={{...overrideStyles.button, ...overrideStyles.sortBtn}}
               >
                 Sort Articles
               </Button>
