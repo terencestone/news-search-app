@@ -3,26 +3,27 @@ import { connect } from 'react-redux'
 import CssModules from 'react-css-modules'
 import styles from './style.scss'
 import ArticleCard from './ArticleCard'
-
-const articles = [
-  {id: 1, img: "image", title: "title", blurb: "blurb"},
-  {id: 2, img: "image", title: "title", blurb: "blurb"},
-  {id: 3, img: "image", title: "title", blurb: "blurb"},
-  {id: 4, img: "image", title: "title", blurb: "blurb"},
-  {id: 5, img: "image", title: "title", blurb: "blurb"},
-  {id: 6, img: "image", title: "title", blurb: "blurb"},
-  {id: 7, img: "image", title: "title", blurb: "blurb"},
-  {id: 8, img: "image", title: "title", blurb: "blurb"},
-]
+import PropTypes from 'prop-types'
 
 class ArticlesContainer extends Component {
 
   mapArticles = () => {
     return (
-      articles.map(article => (
-        <ArticleCard />
+      this.props.articles.map((article, i) => (
+        <ArticleCard
+          key={i}
+          title={article.title}
+          description={article.description}
+          image={article.urlToImage}
+          url={article.url}
+          handleReadMore={this.handleReadMore}
+        />
       ))
     )
+  }
+
+  handleReadMore = (url) => {
+    window.location = url
   }
 
   render() {
@@ -32,10 +33,16 @@ class ArticlesContainer extends Component {
       </div>
     )
   }
+
+  static propTypes = {
+    articles: PropTypes.array
+  }
 }
 
 const mapStatetoProps = state => {
-  return {}
+  return {
+    articles: state.articles.articles
+  }
 }
 
 const mapDispatchToProps = dispatch => {

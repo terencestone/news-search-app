@@ -20,26 +20,29 @@ const jsStyles = {
   },
 };
 
-function SimpleMediaCard(props) {
-  const { classes } = props;
+const SimpleMediaCard = (props) => {
+  const { classes, title, image, description } = props;
   return (
     <div styleName='article-card'>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image="https://images.pexels.com/photos/584165/pexels-photo-584165.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350"
+          image={image}
         />
         <CardContent>
           <Typography gutterBottom variant="headline" component="h2">
-            Lizard
+            {title}
           </Typography>
           <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+            {description}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" color="primary">
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => props.handleReadMore(props.url)}
+          >
             Read More
           </Button>
         </CardActions>
@@ -50,6 +53,11 @@ function SimpleMediaCard(props) {
 
 SimpleMediaCard.propTypes = {
   classes: PropTypes.object.isRequired,
+  title: PropTypes.string,
+  image: PropTypes.string,
+  description: PropTypes.string,
+  url: PropTypes.string,
+  handleReadMore: PropTypes.func
 };
 
 export default withStyles(jsStyles)(CssModules(SimpleMediaCard, styles));
