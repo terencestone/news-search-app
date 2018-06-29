@@ -9,7 +9,7 @@ exports[`renders correctly 1`] = `
     style={
       Object {
         "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-        "backgroundColor": "rgb(232, 232, 232)",
+        "backgroundColor": "#454545",
         "boxSizing": "border-box",
         "display": "flex",
         "height": 56,
@@ -37,11 +37,15 @@ exports[`renders correctly 1`] = `
       <div
         styleName="search-bar"
       >
-        <input />
+        <input
+          onChange={[Function]}
+          onKeyPress={[Function]}
+        />
         <button
           className="MuiButtonBase-root-23 MuiButton-root-1 MuiButton-flat-5"
           disabled={false}
           onBlur={[Function]}
+          onClick={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
           onKeyUp={[Function]}
@@ -51,6 +55,17 @@ exports[`renders correctly 1`] = `
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#e71d37",
+              "color": "white",
+              "fontSize": 12,
+              "height": 30,
+              "marginBottom": 4,
+              "minHeight": 0,
+              "textTransform": "capitalize",
+            }
+          }
           tabIndex="0"
           type="button"
         >
@@ -86,13 +101,25 @@ exports[`renders correctly 1`] = `
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#313131",
+              "color": "white",
+              "fontSize": 12,
+              "height": 35,
+              "marginBottom": 4,
+              "minHeight": 0,
+              "textTransform": "capitalize",
+              "width": 110,
+            }
+          }
           tabIndex="0"
           type="button"
         >
           <span
             className="MuiButton-label-2"
           >
-            Sort
+            Sort Articles
           </span>
           <span
             className="MuiTouchRipple-root-26"

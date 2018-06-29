@@ -3,6 +3,7 @@ import { HeaderComponent } from '../Header/Header';
 import renderer from 'react-test-renderer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { mount, shallow } from "enzyme";
+import Button from '@material-ui/core/Button';
 
 // Basic jest snapshot to catch any glaring bugs/changes to component
 // MuiThemeProvider necessary in order for jest to render components properly with material-ui
@@ -30,9 +31,9 @@ describe("HeaderComponent", () => {
   }
 
   beforeEach(() => {
-    props = {
-      testSaga: {message: 'Hello'},
-    };
+    // props = {
+    //   testSaga: {message: 'Hello'},
+    // };
     mountedHeaderComponent = undefined;
   });
 
@@ -50,17 +51,8 @@ describe("HeaderComponent", () => {
       expect(wrappingDiv.children()).toEqual(header().children());
     });
 
-    it("always renders two buttons", () => {
-      expect(header().find("button").length).toBe(2);
-    });
-
-    it("renders initial button text", () => {
-      expect(header().find("button").last().text()).toBe('Outside button');
-    });
-
-    it("changes the button text", () => {
-      header().instance().changeText();
-      expect(header().instance().state.buttonText).toBe("Outer Button")
+    it("always renders at least two buttons", () => {
+      expect(header().find(Button).length).toBeGreaterThanOrEqual(2);
     });
   });
 });
