@@ -1,7 +1,14 @@
-import { all, fork } from 'redux-saga/effects'
+import { takeLatest } from 'redux-saga/effects'
+import * as constants from '../redux/constants'
 
-import testSaga from './testSaga/saga'
+/* ------------- Sagas ------------- */
 
-export default function* root() {
-  yield all([fork(testSaga)])
+import { articlesFetcher } from './articles'
+
+/* ------------- Connect Types To Sagas ------------- */
+
+export default function * root () {
+  yield [
+    takeLatest(constants.FETCH_ARTICLES.TRIGGER, articlesFetcher)
+  ]
 }
