@@ -31,9 +31,6 @@ describe("HeaderComponent", () => {
   }
 
   beforeEach(() => {
-    // props = {
-    //   testSaga: {message: 'Hello'},
-    // };
     mountedHeaderComponent = undefined;
   });
 

@@ -1,5 +1,7 @@
 import qs from 'qs'
 
+// Normally I'd put this in an envConfig.json or webpack.config along with the apiKey
+// but since there's no sensitive data here, just leaving it exposed.
 const BASE_URL = 'https://newsapi.org/v2/everything?'
 
 function callApi(endpoint, fetchInit = {}) {

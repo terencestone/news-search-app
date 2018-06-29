@@ -7,9 +7,7 @@ const mapStatetoProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return {
-
-  }
+  return {}
 }
 
 export default connect(mapStatetoProps, mapDispatchToProps)(AppComponent)
